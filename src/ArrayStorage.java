@@ -10,11 +10,12 @@ public class ArrayStorage {
 
     void clear() {
         Arrays.fill(storage, null);
+        size = 0;
     }
 
     Resume save(Resume r) {
         for (int i = 0; i < storage.length; i++) {
-            if (storage[i] == null) {
+            if (i == size) {
                 storage[i] = r;
                 size++;
                 break;
