@@ -4,13 +4,10 @@ import com.urise.webapp.model.Resume;
 
 import java.util.Arrays;
 
-/**
- * Array based storage for Resumes
- */
 public class ArrayStorage {
-    Resume[] storage = new Resume[10000];
+    private final Resume[] storage = new Resume[10000];
 
-    int size = 0;
+    private int size = 0;
 
     public void clear() {
         Arrays.fill(storage, 0, size, null);
@@ -51,14 +48,13 @@ public class ArrayStorage {
         if (index == -1) {
             System.out.println("Not exist");
         } else {
-            System.arraycopy(storage, index + 1, storage, index, size - index - 1);
+            // System.arraycopy(storage, index + 1, storage, index, size - index - 1);
+            storage[index] = storage[size - 1];
+            storage[size - 1] = null;
             size--;
         }
     }
 
-    /**
-     * @return array, contains only Resumes in storage (without null)
-     */
     public Resume[] getAll() {
         return Arrays.copyOfRange(storage, 0, size);
     }
