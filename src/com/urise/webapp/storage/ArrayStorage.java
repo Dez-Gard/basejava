@@ -40,7 +40,7 @@ public class ArrayStorage {
     public Resume get(String uuid) {
         int index = getIndex(uuid);
         if (index == -1) {
-            System.out.println("Resume " + uuid + " not exist");
+            System.out.println("Not exist");
             return null;
         }
         return storage[index];
@@ -49,10 +49,9 @@ public class ArrayStorage {
     public void delete(String uuid) {
         int index = getIndex(uuid);
         if (index == -1) {
-            System.out.println("Not found");
+            System.out.println("Not exist");
         } else {
-            storage[index] = storage[size - 1];
-            storage[size - 1] = null;
+            System.arraycopy(storage, index + 1, storage, index, size - index - 1);
             size--;
         }
     }
