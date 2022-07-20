@@ -7,10 +7,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-/**
- * Interactive test for com.urise.webapp.storage.ArrayStorage implementation
- * (just run, no need to understand)
- */
 public class MainArray {
     private final static ArrayStorage ARRAY_STORAGE = new ArrayStorage();
 
